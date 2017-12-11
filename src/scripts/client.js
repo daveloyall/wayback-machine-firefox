@@ -4,7 +4,9 @@
  */
 (function() {
   var enforceBannerInterval;
-
+  var archiveLinkWasClicked = false;
+  var bannerWasShown = false;
+  var bannerWasClosed = false;
   /**
    * Brute force inline css style reset
    */
