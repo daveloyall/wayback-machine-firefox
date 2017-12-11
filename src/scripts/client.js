@@ -4,9 +4,7 @@
  */
 (function() {
   var enforceBannerInterval;
-  var archiveLinkWasClicked = false;
-  var bannerWasShown = false;
-  var bannerWasClosed = false;
+
   /**
    * Brute force inline css style reset
    */
@@ -124,7 +122,6 @@
                   el.onclick = function() {
                     clearInterval(enforceBannerInterval);
                     document.getElementById("no-more-404s-message").style.display = "none";
-                    bannerWasClosed = true;
                   };
                   el.onmouseenter = function() {
                     el.style.backgroundColor = "rgba(0,0,0,.1)";
@@ -202,8 +199,6 @@
                 el.style.border = "1px solid #0675d3";
               };
               el.onclick = function(e) {
-                archiveLinkWasClicked = true;
-
                 // Work-around for myspace which hijacks the link
                 if (window.location.hostname.indexOf("myspace.com") >= 0) {
                   e.preventDefault();
@@ -222,7 +217,6 @@
       document.getElementById("no-more-404s-message").style.transform = "translate(0, 0%)";
     }, 100);
 
-    bannerWasShown = true;
   }
 
   function checkIt(wayback_url) {
