@@ -120,7 +120,7 @@ chrome.runtime.onMessage.addListener(function(message,sender,sendResponse){
         wmAvailabilityCheck(url,function(){
           chrome.tabs.create({ url:  open_url});
         },function(){
-          chrome.runtime.sendMessage({message:'urlnotfound'},function(response){
+          chrome.runtime.sendMessage({message:"urlnotfound"},function(response){
           });
         })
       } else {
@@ -132,9 +132,9 @@ chrome.runtime.onMessage.addListener(function(message,sender,sendResponse){
 
 chrome.webRequest.onErrorOccurred.addListener(function(details) {
   function tabIsReady(isIncognito) {
-    if(details.error == 'NS_ERROR_NET_ON_CONNECTING_TO'  || details.error == 'NS_ERROR_NET_ON_RESOLVED'){
+    if(details.error === "NS_ERROR_NET_ON_CONNECTING_TO"  || details.error === "NS_ERROR_NET_ON_RESOLVED"){
       wmAvailabilityCheck(details.url, function(wayback_url, url) {
-        chrome.tabs.update(details.tabId, {url: chrome.extension.getURL('dnserror.html')+"?url="+wayback_url});
+        chrome.tabs.update(details.tabId, {url: chrome.extension.getURL("dnserror.html")+"?url="+wayback_url});
       }, function() {
         
       });
