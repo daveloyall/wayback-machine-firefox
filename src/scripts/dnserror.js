@@ -6,7 +6,7 @@ function getParameterByName(name, url) {
     var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
         results = regex.exec(url);
     if (!results) return null;
-    if (!results[2]) return '';
+    if (!results[2]) return "";
     return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
-document.getElementById('no-more-404s-dnserror-link').href = getParameterByName('url');
+document.getElementById("no-more-404s-dnserror-link").href = getParameterByName("url");
