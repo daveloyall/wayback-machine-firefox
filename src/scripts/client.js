@@ -4,9 +4,6 @@
  */
 (function() {
   var enforceBannerInterval;
-  var archiveLinkWasClicked = false;
-  var bannerWasShown = false;
-  var bannerWasClosed = false;
 
   /**
    * Brute force inline css style reset
@@ -209,8 +206,7 @@
                 if (window.location.hostname.indexOf("myspace.com") >= 0) {
                   e.preventDefault();
                   return false;
-                } else {
-                }
+                } 
               };
             })
           )
