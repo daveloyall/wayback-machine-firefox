@@ -108,15 +108,15 @@ function isValidSnapshotUrl(url) {
 
 
 chrome.runtime.onMessage.addListener(function(message,sender,sendResponse){
-  if(message.message=='openurl'){
+  if(message.message==="openurl"){
     chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
       var tab = tabs[0];
       var page_url = tab.url;
-      wayback_url = message.wayback_url;
+      var wayback_url = message.wayback_url;
       var pattern = /https:\/\/web\.archive\.org\/web\/(.+?)\//g;
-      url = page_url.replace(pattern, "");
-      open_url = wayback_url+encodeURI(url);
-      if (message.method!='save') {
+      var url = page_url.replace(pattern, "");
+      var open_url = wayback_url+encodeURI(url);
+      if (message.method!=="save") {
         wmAvailabilityCheck(url,function(){
           chrome.tabs.create({ url:  open_url});
         },function(){
